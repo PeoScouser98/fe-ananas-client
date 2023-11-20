@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useState, useEffect } from 'react';
 
 function isJSON(data: any) {
@@ -15,7 +17,7 @@ function isJSON(data: any) {
  * @param {any} defaultValue
  */
 export function useLocalStorage<T>(key: string, defaultValue?: T) {
-	return useStorage(key, defaultValue, window.localStorage);
+	return useStorage(key, defaultValue, window?.localStorage);
 }
 
 /**
@@ -24,14 +26,14 @@ export function useLocalStorage<T>(key: string, defaultValue?: T) {
  * @param {any} defaultValue
  */
 export function useSessionStorage<T>(key: string, defaultValue?: T) {
-	return useStorage(key, defaultValue, window.sessionStorage);
+	return useStorage(key, defaultValue, window?.sessionStorage);
 }
 
 function useStorage<T>(key: string, defaultValue: T, storageObject: Storage): [T, React.Dispatch<T>, () => void] {
 	const [value, setValue] = useState(() => {
+		if (typeof window === 'undefined') return defaultValue;
 		const jsonValue = storageObject.getItem(key);
 		if (isJSON(jsonValue)) return JSON.parse(jsonValue!);
-
 		if (typeof defaultValue === 'function') {
 			return defaultValue();
 		} else {
@@ -40,8 +42,14 @@ function useStorage<T>(key: string, defaultValue: T, storageObject: Storage): [T
 	});
 
 	useEffect(() => {
-		if (value === undefined) return storageObject.removeItem(key);
-		storageObject.setItem(key, JSON.stringify(value));
+		(function () {
+			try {
+				if (value === undefined) return storageObject.removeItem(key);
+				storageObject.setItem(key, JSON.stringify(value));
+			} catch (error) {
+				console.log((error as Error).message);
+			}
+		})();
 	}, [key, value, storageObject]);
 
 	const remove = useCallback(() => {

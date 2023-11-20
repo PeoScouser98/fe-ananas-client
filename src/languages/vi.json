@@ -1,0 +1,33 @@
+{
+	"actions": {
+		"close": "Đóng",
+		"submit": "Xác nhận",
+		"search": "Tìm kiếm"
+	},
+	"titles": {
+		"products": "SẢN PHẨM",
+		"about": "VỀ CÔNG TY",
+		"support": "HỖ TRỢ",
+		"contact": "LIÊN HỆ",
+		"social": "ANANAS SOCIAL"
+	},
+	"links": {
+		"search_store": "Tìm cửa hàng",
+		"cart": "Giỏ hàng",
+		"wish_list": "Yêu thích",
+		"signin": "Đăng nhập",
+		"men_sneaker": "Giày nam",
+		"women_sneaker": "Giày nam",
+		"accessories": "Thời trang & Phụ kiện",
+		"sale_off": "Sale-off",
+		"hiring": "Dứa tuyển dụng",
+		"franchise_policy": "Liên hệ nhượng quyền",
+		"about_us": "Về Ananas",
+		"faqs": "FAQs",
+		"information_protection": "Bảo mật thông tin",
+		"general_policy": "Chính sách chung",
+		"search_order": "Tìm kiếm đơn hàng",
+		"email_feedback": "Email góp ý",
+		"hotline": "Hotline"
+	}
+}

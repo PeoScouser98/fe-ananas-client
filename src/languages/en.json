@@ -1,0 +1,40 @@
+{
+	"actions": {
+		"close": "Close",
+		"submit": "Confirm",
+		"search": "Search"
+	},
+	"header_menu": {
+		"product": "Products",
+		"accessories": "Fashion & Accessories",
+		"men": "For men",
+		"women": "For women",
+		"sale_off": "Sale off"
+	},
+	"titles": {
+		"products": "PRODUCTS",
+		"about": "ABOUT US",
+		"support": "SUPPORT",
+		"contact": "CONTACT",
+		"social": "ANANAS SOCIAL"
+	},
+	"links": {
+		"search_store": "Search store",
+		"cart": "Your cart",
+		"wish_list": "Wish list",
+		"signin": "Sign in",
+		"men_sneaker": "Men's sneakers",
+		"women_sneaker": "Women's sneakers",
+		"accessories": "Fashion & Accessories",
+		"sale_off": "Sale-off",
+		"hiring": "Ananas hiring",
+		"franchise_policy": "Contact for franchising",
+		"about_us": "About Ananas",
+		"faqs": "FAQs",
+		"information_protection": "Infomation protection",
+		"general_policy": "General policy",
+		"search_order": "Search order",
+		"email_feedback": "Email to feedback",
+		"hotline": "Hotline"
+	}
+}

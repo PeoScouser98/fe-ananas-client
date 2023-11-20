@@ -1,26 +1,27 @@
-import React from 'react';
-import { NextIntlClientProvider } from 'next-intl';
+import '@/styles/globals.css';
+import { LOCALES } from '@/common/constants/enums';
+import { cn } from '@/common/lib/utils';
+import Footer from '@/components/shared/footer';
+import Navbar from '@/components/shared/navbar';
+import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { cn } from '@/common/lib/utils';
-import Navbar from '@/components/base/navbar';
-import Footer from '@/components/base/footer';
-import { LOCALES } from '@/common/constants/enums';
-import type { Metadata } from 'next';
-import '@/styles/globals.css';
+import React from 'react';
+import AppProvider from './app-provider';
 
 export const fontSans = FontSans({
 	subsets: ['latin'],
-	variable: '--font-sans',
+	variable: '--font-sans'
 });
 
-type TRootLayoutProps = {
+declare type TRootLayoutProps = {
 	params: { locale: 'en' | 'vi' };
 } & React.PropsWithChildren;
 
 export const meta: Metadata = {
 	title: 'Ananas',
 	description: 'Sneaker store',
+	icons: '/logo.svg'
 };
 
 const RootLayout: React.FC<TRootLayoutProps> = ({ children, params }) => {
@@ -28,21 +29,19 @@ const RootLayout: React.FC<TRootLayoutProps> = ({ children, params }) => {
 
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
-			<head>
-				<link rel='icon' href='/logo.svg' />
-			</head>
-			<body
-				className={cn(
-					'min-h-screen bg-background font-sans antialiased scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-200',
-					fontSans.variable,
-				)}>
-				<NextIntlClientProvider>
+			<AppProvider>
+				<body
+					className={cn(
+						'min-h-screen bg-background font-sans antialiased scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-200',
+						fontSans.variable
+					)}>
 					<Navbar />
 					{children}
 					<Footer />
-				</NextIntlClientProvider>
-			</body>
+				</body>
+			</AppProvider>
 		</html>
 	);
 };
+
 export default RootLayout;

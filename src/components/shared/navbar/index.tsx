@@ -1,9 +1,7 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { Box } from '@/components/ui';
 import React from 'react';
-import Box from '@/components/ui/box';
 import HeaderMain from './header-main';
 import HeaderTop from './header-top';
 
